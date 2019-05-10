@@ -5,11 +5,13 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HotelListComponent } from './components/hotel-list/hotel-list.component';
+import { FiltroComponent } from './components/filtro/filtro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HotelListComponent
+    HotelListComponent,
+    FiltroComponent
   ],
   imports: [
     BrowserModule,

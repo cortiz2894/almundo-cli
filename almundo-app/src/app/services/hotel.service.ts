@@ -9,9 +9,12 @@ export class HotelService {
   public url: string;
 
   constructor(private _http: Http) {
-    this.url = 'http://localhost:3000/api/'
+    this.url = 'http://localhost:3000/api/';
    }
-
+  getApiUrl(segment = '') {
+    var url = this.url + segment;
+    return url;
+  }
   getHoteles() {
     return this._http.get(this.url+'hoteles')
                     .map(res => res.json());
