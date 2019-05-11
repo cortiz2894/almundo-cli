@@ -1,13 +1,10 @@
 <h3>{{title}}</h3>
 <div class="row"></div>
-<!-- <div *ngFor="let hotel of hoteles" class="col-md-12 hotel-item">
-    <p>{{hotel.name}}</p>
-    <img src="{{api_url + hotel.image}} ">
-</div> -->
-<div class="col-md-12 hotel-item row">
-    <div class="img-hotel-container col-md-4"><img src="../../../assets/00650d24_b.jpg"></div>
+
+<div class="col-md-12 hotel-item row" *ngFor="let hotel of hoteles">
+    <div class="img-hotel-container col-md-4"><img src="{{api_url}}image/{{hotel.image}}"></div>
     <div class="info-hotel-container col-md-8">
-        <p>Nombre Hotel</p>
+        <p>{{hotel.name}}</p>
         <div class="stars-container">
             <img src="../../../assets/star.svg">
             <img src="../../../assets/star.svg">
