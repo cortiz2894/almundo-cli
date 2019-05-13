@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-filtro',
@@ -7,15 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltroComponent implements OnInit {
 
+  @Output() stars = new EventEmitter <number>();
+  @Output() hotelName = new EventEmitter <string>();
   constructor() { }
 
   ngOnInit() {
   }
   buscarHotel(termino: string) {
-    console.log(termino);
-    this.filtrarHoteles(termino);
-  }
-  private filtrarHoteles(termino : string){
-    
+    this.hotelName.emit(termino);
   }
 }

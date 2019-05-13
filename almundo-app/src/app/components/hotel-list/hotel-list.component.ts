@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import {HotelService} from '../../services/hotel.service';
 import {Hotel} from '../../models/hotel';
@@ -7,14 +7,15 @@ import {Hotel} from '../../models/hotel';
   selector: 'app-hotel-list',
   templateUrl: './hotel-list.component.html',
   styleUrls: ['./hotel-list.component.css'],
-  providers: [HotelService]
+  providers: []
 })
 
 export class HotelListComponent implements OnInit {
   public title : string;
   public errorMessage;
-  public hoteles : Hotel[];
-  public api_url : string;
+  public imageUrl: string;
+  public amenities: string[];
+  @Input() hoteles : Hotel[];
 
   constructor(
     private _hotelService : HotelService
@@ -23,27 +24,11 @@ export class HotelListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.api_url = this._hotelService.getApiUrl();
-    alert(this.api_url);
-    this._hotelService.getHoteles().subscribe(
-      result => {
-        console.log("esta todo ok");
-        console.log(result);
-        this.hoteles = result.hoteles;
+    this.imageUrl = this._hotelService.getApiUrl();
+  }
 
-        if(!this.hoteles){
-          alert("Error en el server");
-        }
-      },
-      error => {
-        this.errorMessage = <any>error;
-
-        if(this.errorMessage != null) {
-          console.log("Error en la peticion");
-          console.log(this.errorMessage);
-        }
-      }
-    );
+  getStars(hotel: Hotel): any[] {
+    return new Array(hotel.stars);
   }
 
 }

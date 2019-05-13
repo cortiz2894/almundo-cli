@@ -4,6 +4,6 @@
     </div>
 </header>
 <div class="general-container row">
-    <app-filtro class="col-md-3 filtro-container"></app-filtro>
-    <app-hotel-list class="col-md-9 hotels-container"></app-hotel-list>
+    <app-filtro class="col-md-3 filtro-container" (hotelName)="onHotelName($event)"></app-filtro>
+    <app-hotel-list class="col-md-9 hotels-container" [hoteles]="hoteles"></app-hotel-list>
 </div>

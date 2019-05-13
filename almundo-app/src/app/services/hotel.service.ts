@@ -7,12 +7,14 @@ import {Hotel} from '../models/hotel';
 @Injectable()
 export class HotelService {
   public url: string;
+  private imageUrl: string;
 
   constructor(private _http: Http) {
     this.url = 'http://localhost:3000/api/';
+    this.imageUrl = 'http://localhost:3000/';
    }
   getApiUrl(segment = '') {
-    var url = this.url + segment;
+    var url = this.imageUrl + segment;
     return url;
   }
   getHoteles() {
